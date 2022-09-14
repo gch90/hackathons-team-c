@@ -35,15 +35,15 @@ const CancelButton = styled.a.attrs({
     margin: 15px 15px 15px 5px;
 `
 
-class MoviesUpdate extends Component {
+class TicketsUpdate extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             id: this.props.match.params.id,
             name: '',
-            rating: '',
-            time: '',
+            age: '',
+            email: '',
         }
     }
 
@@ -52,50 +52,49 @@ class MoviesUpdate extends Component {
         this.setState({ name })
     }
 
-    handleChangeInputRating = async event => {
-        const rating = event.target.validity.valid
+    handleChangeInputAge = async event => {
+        const age = event.target.validity.valid
             ? event.target.value
-            : this.state.rating
+            : this.state.age
 
-        this.setState({ rating })
+        this.setState({ age })
     }
 
-    handleChangeInputTime = async event => {
-        const time = event.target.value
-        this.setState({ time })
+    handleChangeInputEmail = async event => {
+        const email = event.target.value
+        this.setState({ email })
     }
 
-    handleUpdateMovie = async () => {
-        const { id, name, rating, time } = this.state
-        const arrayTime = time.split('/')
-        const payload = { name, rating, time: arrayTime }
+    handleUpdateTicket = async () => {
+        const { id, name, age, email } = this.state
+        const payload = { name, age, email }
 
-        await api.updateMovieById(id, payload).then(res => {
-            window.alert(`Movie updated successfully`)
+        await api.updateTicketById(id, payload).then(res => {
+            window.alert(`Ticket updated successfully`)
             this.setState({
                 name: '',
-                rating: '',
-                time: '',
+                age: '',
+                email: '',
             })
         })
     }
 
     componentDidMount = async () => {
         const { id } = this.state
-        const movie = await api.getMovieById(id)
+        const ticket = await api.getTicketById(id)
 
         this.setState({
-            name: movie.data.data.name,
-            rating: movie.data.data.rating,
-            time: movie.data.data.time.join('/'),
+            name: ticket.data.data.name,
+            age: ticket.data.data.age,
+            email: ticket.data.data.email,
         })
     }
 
     render() {
-        const { name, rating, time } = this.state
+        const { name, age, email } = this.state
         return (
             <Wrapper>
-                <Title>Create Movie</Title>
+                <Title>Create Ticket</Title>
 
                 <Label>Name: </Label>
                 <InputText
@@ -104,30 +103,30 @@ class MoviesUpdate extends Component {
                     onChange={this.handleChangeInputName}
                 />
 
-                <Label>Rating: </Label>
+                <Label>Age: </Label>
                 <InputText
                     type="number"
-                    step="0.1"
+                    step="1"
                     lang="en-US"
                     min="0"
-                    max="10"
+                    max="150"
                     pattern="[0-9]+([,\.][0-9]+)?"
-                    value={rating}
-                    onChange={this.handleChangeInputRating}
+                    value={age}
+                    onChange={this.handleChangeInputAge}
                 />
 
-                <Label>Time: </Label>
+                <Label>email: </Label>
                 <InputText
                     type="text"
-                    value={time}
-                    onChange={this.handleChangeInputTime}
+                    value={email}
+                    onChange={this.handleChangeInputEmail}
                 />
 
-                <Button onClick={this.handleUpdateMovie}>Update Movie</Button>
-                <CancelButton href={'/movies/list'}>Cancel</CancelButton>
+                <Button onClick={this.handleUpdateTicket}>Update Ticket</Button>
+                <CancelButton href={'/Tickets/list'}>Cancel</CancelButton>
             </Wrapper>
         )
     }
 }
 
-export default MoviesUpdate
+export default TicketsUpdate
