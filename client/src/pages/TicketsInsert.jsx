@@ -35,14 +35,14 @@ const CancelButton = styled.a.attrs({
     margin: 15px 15px 15px 5px;
 `
 
-class MoviesInsert extends Component {
+class TicketsInsert extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             name: '',
-            rating: '',
-            time: '',
+            age: '',
+            email: '',
         }
     }
 
@@ -51,39 +51,38 @@ class MoviesInsert extends Component {
         this.setState({ name })
     }
 
-    handleChangeInputRating = async event => {
-        const rating = event.target.validity.valid
+    handleChangeInputAge = async event => {
+        const age = event.target.validity.valid
             ? event.target.value
-            : this.state.rating
+            : this.state.age
 
-        this.setState({ rating })
+        this.setState({ age })
     }
 
-    handleChangeInputTime = async event => {
-        const time = event.target.value
-        this.setState({ time })
+    handleChangeInputEmail = async event => {
+        const email = event.target.value
+        this.setState({ email })
     }
 
-    handleIncludeMovie = async () => {
-        const { name, rating, time } = this.state
-        const arrayTime = time.split('/')
-        const payload = { name, rating, time: arrayTime }
+    handleIncludeTicket = async () => {
+        const { name, age, email } = this.state
+        const payload = { name, age, email }
 
-        await api.insertMovie(payload).then(res => {
-            window.alert(`Movie inserted successfully`)
+        await api.insertTicket(payload).then(res => {
+            window.alert(`Ticket inserted successfully`)
             this.setState({
                 name: '',
-                rating: '',
-                time: '',
+                age: '',
+                email: '',
             })
         })
     }
 
     render() {
-        const { name, rating, time } = this.state
+        const { name, age, email } = this.state
         return (
             <Wrapper>
-                <Title>Create Movie</Title>
+                <Title>Create Ticket</Title>
 
                 <Label>Name: </Label>
                 <InputText
@@ -92,30 +91,30 @@ class MoviesInsert extends Component {
                     onChange={this.handleChangeInputName}
                 />
 
-                <Label>Rating: </Label>
+                <Label>Age: </Label>
                 <InputText
                     type="number"
-                    step="0.1"
+                    step="1"
                     lang="en-US"
                     min="0"
-                    max="10"
+                    max="150"
                     pattern="[0-9]+([,\.][0-9]+)?"
-                    value={rating}
-                    onChange={this.handleChangeInputRating}
+                    value={age}
+                    onChange={this.handleChangeInputAge}
                 />
 
-                <Label>Time: </Label>
+                <Label>Email: </Label>
                 <InputText
                     type="text"
-                    value={time}
-                    onChange={this.handleChangeInputTime}
+                    value={email}
+                    onChange={this.handleChangeInputEmail}
                 />
 
-                <Button onClick={this.handleIncludeMovie}>Add Movie</Button>
-                <CancelButton href={'/movies/list'}>Cancel</CancelButton>
+                <Button onClick={this.handleIncludeTicket}>Add Ticket</Button>
+                <CancelButton href={'/tickets/list'}>Cancel</CancelButton>
             </Wrapper>
         )
     }
 }
 
-export default MoviesInsert
+export default TicketsInsert
