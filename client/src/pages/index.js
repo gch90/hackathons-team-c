@@ -1,5 +1,6 @@
-import TicketsList from './TicketsList'
-import TicketsInsert from './TicketsInsert'
-import TicketsUpdate from './TicketsUpdate'
+import Landing from './Landing'
+import Enigma from './Enigma'
+import Game from './Game'
+import Form from './Form'
 
-export { TicketsList, TicketsInsert, TicketsUpdate }
+export { Landing, Enigma, Game, Form }

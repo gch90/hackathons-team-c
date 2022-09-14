@@ -2,25 +2,39 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { NavBar } from '../components'
-import { TicketsList, TicketsInsert, TicketsUpdate } from '../pages'
+import { Landing, Enigma, Game, Form } from '../pages'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-function App() {
-    return (
-        <Router>
-            <NavBar />
-            <Switch>
-                <Route path="/tickets/list" exact component={TicketsList} />
-                <Route path="/tickets/create" exact component={TicketsInsert} />
-                <Route
-                    path="/tickets/update/:id"
-                    exact
-                    component={TicketsUpdate}
-                />
-            </Switch>
-        </Router>
-    )
+const App = () => {
+  return (
+    <Router>
+      {/* <NavBar /> */}
+      
+      <Switch>
+        <Route 
+          path="/"
+          exact
+          component={Landing} 
+        />
+        <Route 
+          path="/enigma" 
+          exact 
+          component={Enigma} 
+        />
+        <Route 
+          path="/game" 
+          exact 
+          component={Game} 
+        />
+        <Route
+          path="/form"
+          exact
+          component={Form}
+        />
+      </Switch>
+    </Router>
+  )
 }
 
 export default App
