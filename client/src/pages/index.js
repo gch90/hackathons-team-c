@@ -1,5 +1,6 @@
-import MoviesList from './MoviesList'
-import MoviesInsert from './MoviesInsert'
-import MoviesUpdate from './MoviesUpdate'
+import Landing from './Landing'
+import Enigma from './Enigma'
+import Game from './Game'
+import Form from './Form'
 
-export { MoviesList, MoviesInsert, MoviesUpdate }
+export { Landing, Enigma, Game, Form }
