@@ -3,6 +3,9 @@ import styled from 'styled-components'
 
 import { COLORS } from '../const'
 
+
+import { isSmallScreen } from '../const'
+
 import galleryImg1 from '../gallery-img-1.png'
 import galleryImg2 from '../gallery-img-2.png'
 import galleryImg3 from '../gallery-img-3.png'
@@ -58,7 +61,7 @@ const Col2 = styled.div.attrs({
   }
 
   &:nth-of-type(2) {
-    margin-top:190px;
+    margin-top: ${isSmallScreen ?  '120px' : '190px;'}; 
   }
 
   &:nth-of-type(3) {
@@ -82,14 +85,14 @@ const Col2 = styled.div.attrs({
             height: 95px;
             bottom: 0;
             right: 0;
-            background-color: ${COLORS.mainColor};        
+            background-color: ${COLORS.mainBorder};        
             position:absolute;
         }
     }
   }
 
   &:nth-of-type(4) {
-    margin-top:245px;
+    margin-top: ${isSmallScreen ?  '60px' : '245px;'}; 
   }
 `
 
@@ -99,7 +102,12 @@ const Subtitle = styled.span.attrs({
 
 const ImgHolder = styled.div.attrs({
     className: 'img-wrapper position-relative p-4',
-})``
+})`
+
+    img {
+        max-width: ${isSmallScreen ?  '100%' : ''}; 
+    }
+`
 
 class Gallery extends Component {
     render() {

@@ -2,7 +2,7 @@ import React from 'react'
 import { getUserValue } from '../hooks/useUserStorage'
 
 export const useHandlePageAccess = (history) => {
-	const page = ['enigma', 'form', 'game', 'payment'];
+	const page = ['form', 'game', 'payment'];
 	const location = history.location.pathname;
 	const currentPageName = location.replace('/', '');
 	const currentState = getUserValue('state');
