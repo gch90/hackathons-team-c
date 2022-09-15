@@ -4,3 +4,5 @@ export const COLORS = {
  overlayButtonColor : '#B74C2A',
  mainBorder : '#404040',
 };
+
+export const isSmallScreen = window.matchMedia('(max-width: 767px)').matches

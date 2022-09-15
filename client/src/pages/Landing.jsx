@@ -4,6 +4,7 @@ import { NavBar } from '../components'
 import { Hero } from '../components'
 import { Gallery } from '../components'
 import { Distance } from '../components'
+import { Footer } from '../components'
 
 const Wrapper = styled.div`
   background-color: black;
@@ -17,6 +18,7 @@ const Landing = () => {
       <Hero />
       <Gallery />
       <Distance />
+      <Footer />
     </Wrapper>
   )
 }

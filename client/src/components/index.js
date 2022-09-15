@@ -4,5 +4,6 @@ import NavBar from './NavBar'
 import Hero from './Hero'
 import Gallery from './Gallery'
 import Distance from './Distance'
+import Footer from './Footer'
 
-export { Links, Logo, NavBar, Hero, Gallery, Distance }
+export { Links, Logo, NavBar, Hero, Gallery, Distance, Footer }

@@ -5,6 +5,9 @@ import Logo from './Logo'
 import Links from './Links'
 import Button from './Button'
 
+import { isSmallScreen } from '../const'
+
+
 const Container = styled.div.attrs({
     className: 'container-fluid px-0 position-fixed w-100',
 })`
@@ -20,22 +23,30 @@ const Nav = styled.nav.attrs({
     margin-bottom: 20 px;
 `
 
-class NavBar extends Component {
-    render() {
-        return (
-            <Container>
+const NavBar = () => {
+    
+
+
+    return (
+        <Container>
+            {!isSmallScreen ? 
+                <Nav>
+                <Logo />
+                <Links />
+                <Button
+                    className="top-left-rounded main-color"
+                    title="Acheter vos billets"
+                    link="/enigma"
+                    />
+                </Nav>
+            :
                 <Nav>
                     <Logo />
-                    <Links />
-                    <Button
-                        className="top-left-rounded main-color"
-                        title="Acheter vos billets"
-                        link="/enigma"
-                     />
-                </Nav>
-            </Container>
-        )
-    }
+                </Nav>  
+            }
+          
+        </Container>
+    )
 }
 
 export default NavBar
