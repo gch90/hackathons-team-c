@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Hero from '../components/Hero';
+
+import { Hero, Gallery } from '../components';
 
 const Wrapper = styled.div`
   background-color: black;
@@ -11,6 +12,7 @@ const Landing = () => {
   return (
     <Wrapper>
       <Hero />
+      <Gallery />
     </Wrapper>
   )
 }
