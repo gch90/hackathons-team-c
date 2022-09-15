@@ -18,6 +18,7 @@ const Landing = () => {
           min={54000}  
           max={289000}  
           link="Acheter un billet"  
+          linkFailed="Ou pas..."  
           url="/enigma"  
         />
       <Gallery />
