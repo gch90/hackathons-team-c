@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Hero, Gallery, Prices } from '../components';
+import { Hero, Gallery, Prices, Distance, Footer } from '../components';
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 const Landing = () => {
   return (
     <Wrapper>
+      <Footer />
       <Prices 
           suptitle="Prix"  
           title="Un prix spécialement pour vous"  
@@ -21,6 +22,7 @@ const Landing = () => {
           linkFailed="Ou pas..."  
           url="/enigma"  
         />
+      <Distance />  
       <Gallery />
       <Hero />
     </Wrapper>
