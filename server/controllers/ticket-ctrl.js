@@ -1,120 +1,29 @@
-const Ticket = require('../models/ticket-model')
+// const Ticket = require('../models/ticket-model');
+// const User = require('../models/user-model');
 
-createTicket = (req, res) => {
-    const body = req.body
+// module.exports = {
+  
+//   create: async (req, res) => {
 
-    if (!body) {
-        return res.status(400).json({
-            success: false,
-            error: 'You must provide a ticket',
-        })
-    }
+//     console.log(req.params);
+//     user = req.params;
+//     id = user.id;
+//     const { quantity } = req.body;
+//     const ticket = await Ticket.create({
+//       user:id
+//     });
+//     await ticket.save();
 
-    const ticket = new Ticket(body)
+//     const userById = await User.findById(id);
 
-    if (!ticket) {
-        return res.status(400).json({ success: false, error: err })
-    }
+//     userById.tickets.push(ticket);
+//     await userById.save();
 
-    ticket
-        .save()
-        .then(() => {
-            return res.status(201).json({
-                success: true,
-                id: ticket._id,
-                message: 'Ticket created!',
-            })
-        })
-        .catch(error => {
-            return res.status(400).json({
-                error,
-                message: 'Ticket not created!',
-            })
-        })
-}
-
-updateTicket = async (req, res) => {
-    const body = req.body
-
-    if (!body) {
-        return res.status(400).json({
-            success: false,
-            error: 'You must provide a body to update',
-        })
-    }
-
-    Ticket.findOne({ _id: req.params.id }, (err, ticket) => {
-        if (err) {
-            return res.status(404).json({
-                err,
-                message: 'Ticket not found!',
-            })
-        }
-        ticket.name = body.name
-        ticket.email = body.email
-        ticket.age = body.age
-        ticket
-            .save()
-            .then(() => {
-                return res.status(200).json({
-                    success: true,
-                    id: ticket._id,
-                    message: 'Ticket updated!',
-                })
-            })
-            .catch(error => {
-                return res.status(404).json({
-                    error,
-                    message: 'Ticket not updated!',
-                })
-            })
-    })
-}
-
-deleteTicket = async (req, res) => {
-    await Ticket.findOneAndDelete({ _id: req.params.id }, (err, ticket) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        if (!ticket) {
-            return res
-                .status(404)
-                .json({ success: false, error: `Ticket not found` })
-        }
-
-        return res.status(200).json({ success: true, data: ticket })
-    }).catch(err => console.log(err))
-}
-
-getTicketById = async (req, res) => {
-    await Ticket.findOne({ _id: req.params.id }, (err, ticket) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-
-        return res.status(200).json({ success: true, data: ticket })
-    }).catch(err => console.log(err))
-}
-
-getTickets = async (req, res) => {
-    await Ticket.find({}, (err, tickets) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-        if (!tickets.length) {
-            return res
-                .status(404)
-                .json({ success: false, error: `Tickets not found` })
-        }
-        return res.status(200).json({ success: true, data: tickets })
-    }).catch(err => console.log(err))
-}
-
-module.exports = {
-    createTicket,
-    updateTicket,
-    deleteTicket,
-    getTickets,
-    getTicketById,
-}
+//     return res.send(userById);
+//   },
+//   userByTicket: async (req, res) => {
+//     const { id } = req.params;
+//     const userByTicket = await Ticket.findById(id).populate('user');
+//     res.send(userByTicket);
+//   }
+// }
