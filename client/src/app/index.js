@@ -10,8 +10,7 @@ import '../style/global-style.css'
 const App = () => {
   return (
     <Router>
-      {/* <NavBar /> */}
-      
+      <NavBar />
       <Switch>
         <Route 
           path="/"

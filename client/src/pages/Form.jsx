@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
-import api from '../api'
+import React, {useState} from 'react';
+import api from '../api';
 
-
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Title = styled.h1.attrs({
   className: 'h1',
@@ -36,68 +35,57 @@ const CancelButton = styled.a.attrs({
     margin: 15px 15px 15px 5px;
 `
 
-class Form extends Component {
-  constructor(props) {
-    super(props)
+const Form = (props) => {
+  
+  const [name, setName] = useState('');
+  const [age, setAge] = useState(0);
+  const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [ticketQuantity, setTicketQuantity] = useState(0);
 
-    this.state = {
-      name: '',
-      age: '',
-      email: '',
-      firstName: '',
-      ticketQuantity: '',
-    }
+  const handleChangeInputName = async event => {
+    const getName = event.target.value;
+    setName(getName);
   }
 
-  handleChangeInputName = async event => {
-    const name = event.target.value
-    this.setState({ name })
-  }
-
-  handleChangeInputAge = async event => {
-    const age = event.target.validity.valid
+  const handleChangeInputAge = async event => {
+    const getAge = event.target.validity.valid
       ? event.target.value
-      : this.state.age
+      : age
 
-    this.setState({ age })
+    setAge(getAge);
   }
 
-  handleChangeInputEmail = async event => {
-    const email = event.target.value
-    this.setState({ email })
+  const handleChangeInputEmail = async event => {
+    const getEmail = event.target.value;
+    setEmail(getEmail);
   }
 
-  handleChangeInputFirstName = async event => {
-    const firstName = event.target.value
-    this.setState({ firstName })
+  const handleChangeInputFirstName = async event => {
+    const getFirstName = event.target.value;
+    setFirstName(getFirstName);
   }
 
-  handleChangeInputTicketQuantity = async event => {
-    const ticketQuantity = event.target.validity.valid
+  const handleChangeInputTicketQuantity = async event => {
+    const getTicketQuantity = event.target.validity.valid
       ? event.target.value
-      : this.state.ticketQuantity
+      : ticketQuantity
 
-    this.setState({ ticketQuantity })
+    setTicketQuantity(getTicketQuantity);
   }
 
-  handlePurchaseTicket = async () => {
-    const { name, email, age, firstName, ticketQuantity } = this.state
+  const handlePurchaseTicket = async () => {
     const payload = { name, email, age, firstName, ticketQuantity }
 
     await api.purchaseTicket(payload).then(res => {
       window.alert(`Ticket purchased successfully`)
-      this.setState({
-        name: '',
-        age: '',
-        email: '',
-        firstName: '',
-        ticketQuantity: '',
-      })
+      setName('');
+      setAge(0);
+      setEmail('');
+      setFirstName('');
+      setTicketQuantity(0);
     })
   }
-
-  render() {
-    const { name, age, email, firstName, ticketQuantity  } = this.state
     return (
       <Wrapper>
         <Title>Purchase Ticket</Title>
@@ -106,7 +94,7 @@ class Form extends Component {
         <InputText
           type="text"
           value={name}
-          onChange={this.handleChangeInputName}
+          onChange={handleChangeInputName}
         />
 
         <Label>Age: </Label>
@@ -118,14 +106,14 @@ class Form extends Component {
           max="150"
           pattern="[0-9]+([,\.][0-9]+)?"
           value={age}
-          onChange={this.handleChangeInputAge}
+          onChange={handleChangeInputAge}
         />
 
         <Label>First Name: </Label>
         <InputText
           type="text"
           value={firstName}
-          onChange={this.handleChangeInputFirstName}
+          onChange={handleChangeInputFirstName}
         />
 
 
@@ -137,26 +125,20 @@ class Form extends Component {
           max="3"
           pattern="[0-9]+([,\.][0-9]+)?"
           value={ticketQuantity}
-          onChange={this.handleChangeInputTicketQuantity}
+          onChange={handleChangeInputTicketQuantity}
         />
 
         <Label>Email: </Label>
         <InputText
           type="text"
           value={email}
-          onChange={this.handleChangeInputEmail}
+          onChange={handleChangeInputEmail}
         />
 
-        <Button onClick={this.handlePurchaseTicket}>Purchase Ticket</Button>
+        <Button onClick={handlePurchaseTicket}>Purchase Ticket</Button>
         <CancelButton href={'/tickets/list'}>Cancel</CancelButton>
       </Wrapper>
     )
-  }
 }
-// const Form = () => {
-//   return (
-//     <>COUCOU</>
-//   )
-// }
 
-export default Form
+export default Form;
