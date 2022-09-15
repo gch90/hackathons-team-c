@@ -9,6 +9,8 @@ const Container = styled.div.attrs({
     className: 'container-fluid px-0 position-fixed w-100',
 })`
     top:0px;
+    left:50%;
+    transform: translateX(-50%);
 `
 
 const Nav = styled.nav.attrs({

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavBar } from '../components'
 import { Hero } from '../components'
+import { Gallery } from '../components'
 
 const Wrapper = styled.div`
   background-color: black;
@@ -13,6 +14,7 @@ const Landing = () => {
     <Wrapper>
       <NavBar />
       <Hero />
+      <Gallery />
     </Wrapper>
   )
 }
