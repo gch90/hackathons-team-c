@@ -44,22 +44,37 @@ const Item = styled.div.attrs({
   }`;
 
 const Links = () => {
+
+        const scrollToHash = (target) => {
+
+            if(document.getElementById(target)) {
+                window.scroll({
+                behavior: 'smooth',
+                left: 0,
+                top: (document.getElementById(target).offsetTop - 150)
+                });
+            } else {
+                window.location.replace("/#" + target);
+            }
+        
+        } 
+
         return (
             <React.Fragment>
                 <Collapse>
                     <List>
                         <Item>
-                            <Link to="/#a-propos" className="nav-link">
+                            <Link onClick={() => scrollToHash('a-propos')} to="/" className="nav-link">
                                 À propos
                             </Link>
                         </Item>
                         <Item>
-                            <Link to="/#le-voyage" className="nav-link">
+                            <Link onClick={() => scrollToHash('le-voyage')} to="/" className="nav-link">
                                 Le voyage
                             </Link>
                         </Item>
                         <Item>
-                            <Link to="/#prix" className="nav-link">
+                            <Link onClick={() => scrollToHash('prix')} to="/" className="nav-link">
                                 Prix
                             </Link>
                         </Item>

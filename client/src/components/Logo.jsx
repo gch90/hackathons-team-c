@@ -14,7 +14,7 @@ span {
 const Logo = () => {
         return (
             <Wrapper href="/">
-                <span className='d-block'><img src={logo} width="120" height="20" alt="MTNB" /></span>
+                <span className='d-block'><img src={logo} width="" height="auto" alt="MTNB" /></span>
             </Wrapper>
         )
 }
