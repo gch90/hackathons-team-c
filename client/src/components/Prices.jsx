@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { COLORS } from '../const';
 
 
-const Section = styled.section.attrs({className: 'my-5'})`
+const Section = styled.section.attrs({className: 'my-5', id: 'prix'})`
     font-size: 32px;
     color: white;
 `;  

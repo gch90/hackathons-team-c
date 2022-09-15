@@ -5,7 +5,7 @@ import {COLORS} from '../const';
 import KeyReveal from '../components/KeyReveal';
 
 const Enigma = () => {
-    const firstStr = "Sous vos yeux se trouve une clé pour passer à la page suivante.";
+    const firstStr = "Trouver votre destination dans l'obscurité";
     const secondStr = "Inscrivez là au bon endroit pour tenter d'avoir une place dans la Space.";
     const firstStrTransformed = firstStr.split('').reverse().join('') ;
     const secondStrTransformed = secondStr.split('').reverse().join('');
@@ -44,11 +44,15 @@ const ContainerTop = styled.div`
 const Text = styled.div`
   font-size: 32px;
 `;
-const FirstLine = styled.p`
-  margin-bottom: 10px; 
+const FirstLine = styled.h2`
+  margin-bottom: 10px;
+  text-align: center;
 `;
 const SecondLine = styled.p`
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export default Enigma;
