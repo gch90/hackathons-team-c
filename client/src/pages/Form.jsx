@@ -79,7 +79,7 @@ const Form = (props) => {
         max="150"
         pattern="[0-9]+([,\.][0-9]+)?"
         value={age}
-        onBlur={() => setIsAgeDisabled(false)}
+        onBlur={() => setIsAgeDisabled(true)}
         onChange={handleChangeInputAge}
       />
       <Label htmlFor='first-name-input' onClick={() => setIsFirstNameDisabled(false)}>First Name:</Label>
@@ -88,7 +88,7 @@ const Form = (props) => {
         disabled={isFirstNameDisabled}
         type="text"
         value={firstName}
-        onBlur={() => setIsFirstNameDisabled(false)}
+        onBlur={() => setIsFirstNameDisabled(true)}
         onChange={handleChangeInputFirstName}
       />
       <Label htmlFor='ticket-quantity-input' onClick={() => setIsTicketQuantityDisabled(false)}>Ticket Quantity:</Label>
@@ -101,7 +101,7 @@ const Form = (props) => {
         max="3"
         pattern="[0-9]+([,\.][0-9]+)?"
         value={ticketQuantity}
-        onBlur={() => setIsTicketQuantityDisabled(false)}
+        onBlur={() => setIsTicketQuantityDisabled(true)}
         onChange={handleChangeInputTicketQuantity}
       />
       <Label htmlFor='email-input' onClick={() => setIsEmailDisabled(false)}>Email:</Label>
@@ -110,7 +110,7 @@ const Form = (props) => {
         disabled={isEmailDisabled}
         type="text"
         value={email}
-        onBlur={() => setIsEmailDisabled(false)} 
+        onBlur={() => setIsEmailDisabled(true)} 
         onChange={handleChangeInputEmail}
       />
       <CancelButton href={'/tickets/list'}>Cancel</CancelButton>
@@ -128,7 +128,7 @@ const Wrapper = styled.div.attrs({
   className: 'form-group',
 })`
   margin: 0 auto;
-  padding:50px;
+  padding: 50px;
   max-width: 640px;
   border: 1px solid ${COLORS.mainBorder};
   border-radius: 30px;
@@ -140,15 +140,15 @@ const Label = styled.label`
   font-size: 16px;
   text-transform: uppercase;
 `;
-
-const InputText = styled.input`
+const InputText = styled.input.attrs({
+  className: 'form-control'
+})`
   margin: 5px;
   border-radius: 0!important;
   background-color: transparent!important;
   border-color:${COLORS.mainBorder}!important;
   min-height:60px!important;
 `;
-
 const Button = styled.button.attrs({
   className: `btn btn-primary`,
 })`
