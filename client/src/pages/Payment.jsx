@@ -6,11 +6,6 @@ import { getUserValue, updateUserValue } from '../hooks/useUserStorage';
 
 const Payment = () => {
 
-  useEffect(() => {
-  	if (getUserValue('payed'))
-		  sendUserData();
-  }, []);	
-
   const sendUserData = async () => {
     updateUserValue('payed', 'true');
   	const name = getUserValue('name');
@@ -25,6 +20,12 @@ const Payment = () => {
       window.alert(`Ticket purchased successfully`);
     })
   }
+
+  useEffect(() => {
+    if (getUserValue('payed')) {
+      sendUserData();
+    }
+  }, []); 
 
   const getRandomInt = (min, max) => {
     min = Math.ceil(min);

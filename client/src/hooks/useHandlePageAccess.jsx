@@ -9,6 +9,8 @@ export const useHandlePageAccess = (history) => {
 	if (currentState === null && page[0] !== currentPageName) {
 		history.push('/');
 	}
+console.log(currentState)
+console.log(currentPageName)
 
 	if (page.includes(currentPageName)) {
 		const currentPagePosition = page.indexOf(currentPageName);

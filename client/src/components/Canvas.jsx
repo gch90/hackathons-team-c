@@ -75,7 +75,7 @@ const Canvas = (props) => {
     const canvasRef = useRef(null);
     const [gameState, setGameState] = useState("Play");
     var interval;
-    var circleCount = 1;
+    var circleCount = 30;
 
 
     const update = (ctx, frameCount, circles, speed, elapsedSinceLastLoop) => {
@@ -120,7 +120,7 @@ const Canvas = (props) => {
 
     const winGame = () => {
         updateUserValue('state', 'payment');
-        props.history.push('/payment')
+        changeGameState("Win");
     }
 
     useEffect(() => {
@@ -227,6 +227,10 @@ const Canvas = (props) => {
                     <FailButton onClick={() => restartGame()}>{props.buttonFailed}</FailButton>
                 </FailPopup>
             ;
+            break;
+        case "Win":
+            game = <Renderer ref={canvasRef} {...props} lassName="hidden"></Renderer>;
+            props.history.push('/payment')
             break;
         default:
             break;
