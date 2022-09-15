@@ -82,7 +82,7 @@ const Col2 = styled.div.attrs({
             height: 95px;
             bottom: 0;
             right: 0;
-            background-color: ${COLORS.mainBorder};        
+            background-color: ${COLORS.mainColor};        
             position:absolute;
         }
     }
@@ -108,7 +108,7 @@ class Gallery extends Component {
                 <Row>
                     <Col>
                         <Subtitle>Mars</Subtitle>
-                        <h2 className="m-0">Une planète remplie de<br />mystères à découvrir...</h2>
+                        <h2>Une planète remplie de<br />mystères à découvrir...</h2>
                     </Col>
                 </Row>
                 <Row2>

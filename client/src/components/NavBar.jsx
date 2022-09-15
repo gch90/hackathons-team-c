@@ -11,6 +11,7 @@ const Container = styled.div.attrs({
     top:0px;
     left:50%;
     transform: translateX(-50%);
+    z-index: 111;
 `
 
 const Nav = styled.nav.attrs({

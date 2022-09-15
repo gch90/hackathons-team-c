@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { NavBar } from '../components'
 import { Hero } from '../components'
 import { Gallery } from '../components'
+import { Distance } from '../components'
 
 const Wrapper = styled.div`
   background-color: black;
@@ -15,6 +16,7 @@ const Landing = () => {
       <NavBar />
       <Hero />
       <Gallery />
+      <Distance />
     </Wrapper>
   )
 }
