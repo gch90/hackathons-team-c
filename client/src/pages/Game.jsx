@@ -1,8 +1,12 @@
 import React from 'react'
+import { Canvas } from '../components';
 
 const Game = () => {
   return (
-    <>COUCOU</>
+    <Canvas 
+      suptitle="Étape 2 sur 3"
+      title="Le jeux"
+    />
   )
 }
 

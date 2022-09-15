@@ -5,5 +5,6 @@ import Hero from './Hero'
 import Gallery from './Gallery'
 import Loading from './Loading'
 import Prices from './Prices'
+import Canvas from './Canvas'
 
-export { Links, Logo, NavBar, Hero, Gallery, Loading, Prices }
+export { Links, Logo, NavBar, Hero, Gallery, Loading, Prices, Canvas }

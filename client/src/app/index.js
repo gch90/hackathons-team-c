@@ -7,10 +7,12 @@ import { Landing, Enigma, Game, Form } from '../pages'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../style/global-style.css'
 
+// <Loading />
+
 const App = () => {
   return (
     <Router>
-      <Loading />
+      
       <NavBar />
       <Switch>
         <Route 
