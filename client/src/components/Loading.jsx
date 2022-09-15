@@ -59,6 +59,7 @@ const spinAnimation = keyframes`
 `;
 
 const ImageAnimation = styled.div`
+    transform-origin:50% 50%;
     animation: ${spinAnimation} 10s linear infinite;
 `;
 

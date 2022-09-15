@@ -6,6 +6,9 @@ const Game = () => {
     <Canvas 
       suptitle="Étape 2 sur 3"
       title="Le jeux"
+      text="Vite! Cliquez sur tous les ronds sinon vous perderez votre place..."
+      titleFailed="Trop null... Vous avez échoué, vous réessayer?"
+      buttonFailed="Réessayer"
     />
   )
 }
