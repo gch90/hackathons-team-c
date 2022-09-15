@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import api from '../api';
 import {updateUserValue} from '../hooks/useUserStorage'
 import { BrowserRouter as Redirect } from 'react-router-dom'
@@ -73,12 +73,36 @@ const CancelButton = styled.a.attrs({
 
 const Form = (props) => {
   useHandlePageAccess(props.history);
+  useEffect(() => {
+    updateUserValue('state', 'form')
+  }, [])
 
   const [name, setName] = useState('');
   const [age, setAge] = useState(0);
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [ticketQuantity, setTicketQuantity] = useState(0);
+  const [isDisabledName, setIsDisabledName] = useState(true);
+  const [isDisabledAge, setIsDisabledAge] = useState(true);
+  const [isDisabledFirstName, setIsDisabledFirstName] = useState(true);
+  const [isDisabledEmail, setIsDisabledEmail] = useState(true);
+  const [isDisabledQuantity, setIsDisabledQuantity] = useState(true);
+
+  const handleClickLabelName = () => {
+    setIsDisabledName(!isDisabledName);
+  }
+  const handleClickLabelAge = () => {
+    setIsDisabledAge(!isDisabledAge);
+  }
+  const handleClickLabelQuantity = () => {
+    setIsDisabledQuantity(!isDisabledQuantity);
+  }
+  const handleClickLabelFirstName = () => {
+    setIsDisabledFirstName(false);
+  }
+  const handleClickLabelEmail = () => {
+    setIsDisabledEmail(false);
+  }
 
   const handleChangeInputName = async event => {
     const getName = event.target.value;
@@ -89,7 +113,6 @@ const Form = (props) => {
     const getAge = event.target.validity.valid
       ? event.target.value
       : age
-
     setAge(getAge);
   }
 
@@ -118,21 +141,25 @@ const Form = (props) => {
     updateUserValue('firstName', firstName);
     updateUserValue('ticketQuantity', ticketQuantity);
     updateUserValue('state', 'game');
+
   }
     return (
       <Wrapper>
         <Title>Purchase Ticket</Title>
-
-        <Label for="name">Name: </Label>
+        <Label onClick={handleClickLabelName} htmlFor='inputName' >Name:</Label>
         <InputText
-          id="name"
+          id="inputName"
+          disabled={isDisabledName}
           type="text"
           value={name}
+          onBlur={handleClickLabelName}
           onChange={handleChangeInputName}
-        />
+          />
 
-        <Label>Age: </Label>
+        <Label onClick={handleClickLabelAge}  htmlFor='inputAge' >Age: </Label>
         <InputText
+          id="inputAge"
+          disabled={isDisabledAge}
           type="number"
           step="1"
           lang="en-US"
@@ -140,32 +167,41 @@ const Form = (props) => {
           max="150"
           pattern="[0-9]+([,\.][0-9]+)?"
           value={age}
+          onBlur={handleClickLabelAge}
           onChange={handleChangeInputAge}
         />
 
-        <Label>First Name: </Label>
+        <Label onClick={handleClickLabelFirstName}  htmlFor='inputFirstName'>First Name: </Label>
         <InputText
+          id='inputFirstName'
+          disabled={isDisabledFirstName}
           type="text"
           value={firstName}
+          onBlur={handleClickLabelFirstName}
           onChange={handleChangeInputFirstName}
         />
 
-
-        <Label>Ticket Quantity: </Label>
+        <Label onClick={handleClickLabelQuantity} htmlFor='inputTicketQuantity'>Ticket Quantity: </Label>
         <InputText
+          id='inputTicketQuantity'
+          disabled={isDisabledQuantity}
           type="number"
           lang="en-US"
           min="1"
           max="3"
           pattern="[0-9]+([,\.][0-9]+)?"
           value={ticketQuantity}
+          onBlur={handleClickLabelQuantity}
           onChange={handleChangeInputTicketQuantity}
         />
 
-        <Label>Email: </Label>
+        <Label onClick={handleClickLabelEmail} htmlFor='inputTicketEmail'>Email: </Label>
         <InputText
+          id='inputTicketEmail'
+          disabled={isDisabledEmail}
           type="text"
           value={email}
+          onBlur={handleClickLabelEmail} 
           onChange={handleChangeInputEmail}
         />
         <CancelButton href={'/tickets/list'}>Cancel</CancelButton>
