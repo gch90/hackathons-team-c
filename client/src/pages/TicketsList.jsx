@@ -32,12 +32,16 @@ const Ticketslist = () => {
     	<>
     		{userListData.map((user) => {
     			console.log(user)
-    			return ( 
-    				<div> 
-    					{user.name}
-    				</div>
-    				)
-
+    			return (
+					<div className='container-fluid'>
+						
+						<div className="row">
+								<div className="col"><strong>Nom : </strong>{user.name}</div>
+								<div className="col"><strong>Courriel : </strong>{user.email}</div>
+								<div className="col"><strong>Age : </strong>{user.age}</div>
+						</div> 
+					</div>
+					)
 	    		})
 	    	}
     		{console.log()}

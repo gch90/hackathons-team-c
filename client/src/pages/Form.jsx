@@ -64,6 +64,7 @@ const Form = (props) => {
     updateUserValue('firstName', firstName.split('').reverse().join(''));
     updateUserValue('ticketQuantity', ticketQuantity);
     updateUserValue('state', 'game');
+    props.history.push('/game')
   }
 
   return (

@@ -6,12 +6,8 @@ import { getUserValue, updateUserValue } from '../hooks/useUserStorage';
 
 const Payment = () => {
 
-  useEffect(() => {
-  	if (getUserValue('payed'))
-		sendUserData();
-  }, []);	
-
   const sendUserData = async () => {
+    updateUserValue('payed', 'true');
   	const name = getUserValue('name');
   	const email = getUserValue('email');
   	const age = getUserValue('age');
@@ -19,12 +15,17 @@ const Payment = () => {
   	const ticketQuantity = getUserValue('ticketQuantity');
 
     const payload = {name, email, age, firstName, ticketQuantity};
-	  updateUserValue('payed', 'true');
 
     await api.purchaseTicket(payload).then(res => {
       window.alert(`Ticket purchased successfully`);
     })
   }
+
+  useEffect(() => {
+    if (getUserValue('payed')) {
+      sendUserData();
+    }
+  }, []); 
 
   const getRandomInt = (min, max) => {
     min = Math.ceil(min);

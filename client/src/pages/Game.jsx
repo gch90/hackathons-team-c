@@ -13,6 +13,7 @@ const Game = (props) => {
       text="Vite! Cliquez sur tous les ronds sinon vous perderez votre place..."
       titleFailed="Trop null... Vous avez échoué, vous réessayer?"
       buttonFailed="Réessayer"
+      history={props.history}
     />
   )
 }

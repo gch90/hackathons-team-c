@@ -1,6 +1,7 @@
 import React, { Component, useRef, useState, useEffect, createRef } from 'react';
 import styled from 'styled-components';
 import { COLORS } from '../const';
+import {updateUserValue} from '../hooks/useUserStorage';
 
 const Section = styled.section.attrs({className: 'my-5'})`
     font-size: 32px;
@@ -118,8 +119,8 @@ const Canvas = (props) => {
     }
 
     const winGame = () => {
-        // Make redirect and manage local store.
-        // Todo
+        updateUserValue('state', 'payment');
+        changeGameState("Win");
     }
 
     useEffect(() => {
@@ -226,6 +227,10 @@ const Canvas = (props) => {
                     <FailButton onClick={() => restartGame()}>{props.buttonFailed}</FailButton>
                 </FailPopup>
             ;
+            break;
+        case "Win":
+            game = <Renderer ref={canvasRef} {...props} lassName="hidden"></Renderer>;
+            props.history.push('/payment')
             break;
         default:
             break;
