@@ -1,29 +1,33 @@
-// const Ticket = require('../models/ticket-model');
-// const User = require('../models/user-model');
+const Ticket = require('../models/ticket-model');
+const User = require('../models/user-model');
 
-// module.exports = {
+module.exports = {
   
-//   create: async (req, res) => {
+  getAllTickets: async (req, res) => {
+    await Ticket.find({}, (err, tickets) => {
 
-//     console.log(req.params);
-//     user = req.params;
-//     id = user.id;
-//     const { quantity } = req.body;
-//     const ticket = await Ticket.create({
-//       user:id
-//     });
-//     await ticket.save();
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        if (!tickets.length) {
+            return res
+                .status(404)
+                .json({ success: false, error: `Movie not found` })
+        }
 
-//     const userById = await User.findById(id);
+        const max = tickets.length > 99 ? 99 : tickets.length
 
-//     userById.tickets.push(ticket);
-//     await userById.save();
+        let selectedTicketsIndex = [];
+        while(selectedTicketsIndex.length < max){
+            let r = Math.floor(Math.random() * tickets.length);
+            if(selectedTicketsIndex.indexOf(r) === -1) selectedTicketsIndex.push(r);
+        }
 
-//     return res.send(userById);
-//   },
-//   userByTicket: async (req, res) => {
-//     const { id } = req.params;
-//     const userByTicket = await Ticket.findById(id).populate('user');
-//     res.send(userByTicket);
-//   }
-// }
+        let selectedTickets = selectedTicketsIndex.map((index) => {
+            return tickets[index].user
+        })
+
+        return res.status(200).json({ success: true, data: selectedTickets })
+    }).catch(err => console.log(err))
+  }
+}

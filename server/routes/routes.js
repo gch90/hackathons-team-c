@@ -11,12 +11,13 @@ const router = express.Router();
 // router.get('/ticket/:id', TicketCtrl.getTicketById)
 // router.get('/tickets', TicketCtrl.getTickets)
 
-
 router.get('/', (req, res) => res.send('ok'));
 // user routes
 router.post('/user/create', userCtrl.create);
 router.post('/user/find', userCtrl.find);
 router.post('/user/find/ticket/:id', userCtrl.ticketsByUser);
+router.post('/user/find/many/:ids', userCtrl.findMany);
+router.get('/tickets', ticketCtrl.getAllTickets);
 // ticket routes
 // router.post('/ticket/create/:id', ticketCtrl.create);
 // router.post('/ticket/populate/:id', ticketCtrl.userByTicket);
