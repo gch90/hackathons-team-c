@@ -7,19 +7,19 @@ import KeyReveal from '../components/KeyReveal';
 const Enigma = () => {
     const firstStr = "Trouver votre destination dans l'obscurité";
     const secondStr = "Inscrivez là au bon endroit pour tenter d'avoir une place dans la Space.";
-    const firstStrTransformed = firstStr.split('').reverse().join('') ;
+    const firstStrTransformed = firstStr.split('').reverse().join('');
     const secondStrTransformed = secondStr.split('').reverse().join('');
 
     return (
-        <Wrapper>
-            <ContainerTop>
-                <Text>
-                    <FirstLine>{firstStrTransformed}</FirstLine>
-                    <SecondLine>{secondStrTransformed}</SecondLine>
-                </Text>
-            </ContainerTop>
-            <KeyReveal />
-        </Wrapper>
+      <Wrapper>
+        <ContainerTop>
+          <Text>
+            <FirstLine>{firstStrTransformed}</FirstLine>
+            <SecondLine>{secondStrTransformed}</SecondLine>
+          </Text>
+        </ContainerTop>
+        <KeyReveal />
+      </Wrapper>
     )
 }
 
