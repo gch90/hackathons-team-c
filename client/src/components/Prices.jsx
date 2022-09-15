@@ -31,8 +31,8 @@ const Paragraph = styled.p`
 const Ticket = styled.div`
     position:relative;
     background:rgba(255,255,255, 0.05);
-    padding:100px;
-    width:650px;
+    padding:80px 100px;
+    width:750px;
     max-width:100%;
     margin:auto;
     text-align:center;
