@@ -18,7 +18,7 @@ router.post('/user/create', userCtrl.create);
 router.post('/user/find', userCtrl.find);
 router.post('/user/find/ticket/:id', userCtrl.ticketsByUser);
 // ticket routes
-router.post('/ticket/create/:id', ticketCtrl.create);
-router.post('/ticket/populate/:id', ticketCtrl.userByTicket);
+// router.post('/ticket/create/:id', ticketCtrl.create);
+// router.post('/ticket/populate/:id', ticketCtrl.userByTicket);
 
 module.exports = router;
