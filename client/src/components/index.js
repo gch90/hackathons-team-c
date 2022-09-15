@@ -10,4 +10,4 @@ import Prices from './Prices'
 import Canvas from './Canvas'
 import Score from './Score'
 
-export { Links, Logo, NavBar, Hero, Gallery, Loading, Prices, Distance, Footer }
+export { Links, Logo, NavBar, Hero, Gallery, Loading, Prices, Distance, Footer, Canvas }
