@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import api from '../api';
+import {updateUserValue} from '../hooks/useUserStorage'
+import { BrowserRouter as Redirect } from 'react-router-dom'
 
 import styled from 'styled-components';
 
@@ -75,23 +77,22 @@ const Form = (props) => {
   }
 
   const handlePurchaseTicket = async () => {
-    const payload = { name, email, age, firstName, ticketQuantity }
+    updateUserValue('name', name);
+    updateUserValue('email', email);
+    updateUserValue('age', age);
+    updateUserValue('firstName', firstName);
+    updateUserValue('ticketQuantity', ticketQuantity);
+    updateUserValue('state', 'game');
 
-    await api.purchaseTicket(payload).then(res => {
-      window.alert(`Ticket purchased successfully`)
-      setName('');
-      setAge(0);
-      setEmail('');
-      setFirstName('');
-      setTicketQuantity(0);
-    })
+    props.history.push('/game');
   }
     return (
       <Wrapper>
         <Title>Purchase Ticket</Title>
 
-        <Label>Name: </Label>
+        <Label for="name">Name: </Label>
         <InputText
+          id="name"
           type="text"
           value={name}
           onChange={handleChangeInputName}

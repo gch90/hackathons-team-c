@@ -13,3 +13,4 @@ export const updateUserValue = (key, value) => {
   const userKey = 'user_' + key
   localStorage.setItem(userKey, JSON.stringify(value));
 }
+
