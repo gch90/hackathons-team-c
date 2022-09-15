@@ -1,7 +1,11 @@
 import React from 'react'
 import { Canvas } from '../components';
+import { useHandlePageAccess } from '../hooks/useHandlePageAccess'
+import {updateUserValue} from '../hooks/useUserStorage'
 
-const Game = () => {
+const Game = (props) => {
+  useHandlePageAccess(props.history);
+
   return (
     <Canvas 
       suptitle="Étape 2 sur 3"

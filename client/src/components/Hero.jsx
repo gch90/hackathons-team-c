@@ -3,15 +3,17 @@ import styled from 'styled-components';
 
 import imgMars from '../mars.png';
 
-import Button from './Button';
+import { isSmallScreen } from '../const'
 
 const Section = styled.section.attrs({
     className: 'container d-flex align-items-center justify-content-center w-100 my-5',
+    id: "a-propos"
 })`
     min-height:100vh;
 
     img {
-        left:-400px;
+        left: ${isSmallScreen ?  '-300px' : '-400px'};
+        max-width: ${isSmallScreen ?  '400px' : '800px'};
     }
 `;
 const Row = styled.div.attrs({
@@ -30,11 +32,6 @@ const Hero = () => {
                     <Col>
                         <h2>Le premier voyage vers Mars entre vos mains...</h2>
                         <p>Ne ratez pas votre chance et achetez votre billet pour la grande odyssée vers les terres arides de mars.</p>
-                        <Button
-                            className="main-color d-inline-block"
-                            title="Acheter vos billets"
-                            link="/enigma"
-                        />
                     </Col>
                 </Row>
             </Section>

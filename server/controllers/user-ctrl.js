@@ -34,5 +34,10 @@ module.exports = {
     const user = await User.findById(id).populate('tickets');
 
     res.send(user.tickets);
-  }
+  },
+  findMany: async (req, res) => {
+    const { ids } = req.params;
+    const user = await User.find({'_id': { $in: JSON.parse(ids).ids }});
+    res.send(user);
+  },
 }
