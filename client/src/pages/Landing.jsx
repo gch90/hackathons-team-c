@@ -22,8 +22,8 @@ const Landing = () => {
           linkFailed="Ou pas..."  
           url="/enigma"  
         />
+      <Distance />  
       <Gallery />
-      <Distance />
       <Hero />
     </Wrapper>
   )

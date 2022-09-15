@@ -18,14 +18,12 @@ const Container = styled.div.attrs({
 `
 
 const Nav = styled.nav.attrs({
-    className: 'navbar navbar-expand-lg justify-content-between py-3 py-xl-5',
+    className: 'navbar navbar-expand-lg justify-content-between pt-3 pt-xl-5',
 })`
     margin-bottom: 20 px;
 `
 
 const NavBar = () => {
-    
-
 
     return (
         <Container>
