@@ -98,10 +98,10 @@ const Form = (props) => {
     setIsDisabledQuantity(!isDisabledQuantity);
   }
   const handleClickLabelFirstName = () => {
-    setIsDisabledFirstName(false);
+    setIsDisabledFirstName(!isDisabledFirstName);
   }
   const handleClickLabelEmail = () => {
-    setIsDisabledEmail(false);
+    setIsDisabledEmail(!isDisabledEmail);
   }
 
   const handleChangeInputName = async event => {
