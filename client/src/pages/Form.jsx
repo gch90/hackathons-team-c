@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import api from '../api';
 import {updateUserValue} from '../hooks/useUserStorage'
 import { BrowserRouter as Redirect } from 'react-router-dom'
+import { useHandlePageAccess } from '../hooks/useHandlePageAccess'
 
 import styled from 'styled-components';
 
@@ -38,7 +39,8 @@ const CancelButton = styled.a.attrs({
 `
 
 const Form = (props) => {
-  
+  useHandlePageAccess(props.history);
+
   const [name, setName] = useState('');
   const [age, setAge] = useState(0);
   const [email, setEmail] = useState('');
@@ -83,8 +85,6 @@ const Form = (props) => {
     updateUserValue('firstName', firstName);
     updateUserValue('ticketQuantity', ticketQuantity);
     updateUserValue('state', 'game');
-
-    props.history.push('/game');
   }
     return (
       <Wrapper>
