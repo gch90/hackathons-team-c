@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { useHandlePageAccess } from '../hooks/useHandlePageAccess';
 
-const Game = () => {
+const Game = (props) => {
+  useHandlePageAccess(props.history);
+
   return (
     <>COUCOU</>
   )
 }
 
-export default Game
+export default Game;
