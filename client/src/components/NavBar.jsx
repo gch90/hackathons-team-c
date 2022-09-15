@@ -4,12 +4,11 @@ import styled from 'styled-components'
 import Logo from './Logo'
 import Links from './Links'
 import Button from './Button'
-import { COLORS } from '../const'
 
 const Container = styled.div.attrs({
     className: 'container-fluid px-0 position-fixed w-100',
 })`
-    height: 150px;
+    top:0px;
 `
 
 const Nav = styled.nav.attrs({
