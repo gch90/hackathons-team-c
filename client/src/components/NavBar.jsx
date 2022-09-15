@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import { isSmallScreen } from '../const';
 
-import Logo from './Logo'
-import Links from './Links'
-import Button from './Button'
-
-import { isSmallScreen } from '../const'
-
+import Logo from './Logo';
+import Links from './Links';
+import Button from './Button';
 
 const Container = styled.div.attrs({
     className: 'container-fluid px-0 position-fixed w-100',
