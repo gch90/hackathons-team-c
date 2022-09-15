@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavBar } from '../components'
 
 const Wrapper = styled.div`
   background-color: black;
@@ -10,7 +11,7 @@ const Wrapper = styled.div`
 const Landing = () => {
   return (
     <Wrapper>
-      MARS
+      <NavBar />
     </Wrapper>
   )
 }

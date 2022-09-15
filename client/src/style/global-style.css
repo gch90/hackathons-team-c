@@ -1,0 +1,26 @@
+html {
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.button-holder {
+    padding: 6px;
+    border: 1px solid #404040;
+}
+
+.button-holder:hover {
+    text-decoration: none;
+}
+
+.button-holder.top-left-rounded {
+    border-top-left-radius: 35px;
+}
+
+nav {
+    position: fixed;
+}
