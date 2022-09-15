@@ -5,8 +5,6 @@ import imgMars from '../mars.png';
 
 import { isSmallScreen } from '../const'
 
-import Button from './Button';
-
 const Section = styled.section.attrs({
     className: 'container d-flex align-items-center justify-content-center w-100 my-5',
     id: "a-propos"
