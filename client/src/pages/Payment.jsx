@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
 import { getUserValue, updateUserValue } from '../hooks/useUserStorage'
 import api from '../api';
+import { useHandlePageAccess } from '../hooks/useHandlePageAccess'
 
-const Payment = () => {
-  
+const Payment = (props) => {
+  useHandlePageAccess(props.history);
+
   useEffect(() => {
-	sendUserData();
+  	if (getUserValue('payed'))
+		sendUserData();
   }, []);	
 
   const sendUserData = async () => {
@@ -16,7 +19,7 @@ const Payment = () => {
   	const ticketQuantity = getUserValue('ticketQuantity');
 
     const payload = { name, email, age, firstName, ticketQuantity };
-	updateUserValue('state', 'payment');
+	updateUserValue('payed', 'true');
 
     await api.purchaseTicket(payload).then(res => {
       window.alert(`Ticket purchased successfully`);
