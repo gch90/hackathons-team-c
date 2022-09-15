@@ -1,6 +1,5 @@
-import React from 'react'
-import { useHandlePageAccess } from '../hooks/useHandlePageAccess'
-import {updateUserValue} from '../hooks/useUserStorage'
+import React from 'react';
+import { useHandlePageAccess } from '../hooks/useHandlePageAccess';
 
 const Game = (props) => {
   useHandlePageAccess(props.history);
@@ -10,4 +9,4 @@ const Game = (props) => {
   )
 }
 
-export default Game
+export default Game;
