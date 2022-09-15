@@ -26,7 +26,7 @@ const Col = styled.div.attrs({
 })``
 
 const DivTravel = styled.div.attrs({
-    className: 'col-12 d-flex justify-content-between align-items-center text-center flex-column flex-lg-row flex-row-lg-reverse px-0',
+    className: 'col-12 d-flex justify-content-between align-items-center text-center flex-column flex-lg-row flex-lg-row-reverse px-0',
 })``
 
 const Planethoder = styled.div.attrs({
