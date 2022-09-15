@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { COLORS } from '../const';
 import imgMars from '../mars.png';
-
 
 const Loader = styled.div`
     position:fixed;
@@ -92,34 +91,33 @@ const Label = styled.div`
 
 const Loading = () => {
 
-    const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
+      // Disable scroll on page load...
+      const defaultOverflow = document.querySelector('html').style.overflow;
+      document.querySelector('html').style.overflow = "hidden";
 
-        // Disable scroll on page load...
-        const defaultOverflow = document.querySelector('html').style.overflow;
-        document.querySelector('html').style.overflow = "hidden";
-
-        // When page loaded, enable scroll and hide loading...
-        window.addEventListener('load', function(){
-            this.setTimeout(() => {
-                document.querySelector('html').style.overflow = defaultOverflow;
-                window.scrollTo(0, document.body.scrollHeight);
-                setLoaded(true);
-            }, 1000);
-        });
+      // When page loaded, enable scroll and hide loading...
+      window.addEventListener('load', function(){
+        this.setTimeout(() => {
+          document.querySelector('html').style.overflow = defaultOverflow;
+          window.scrollTo(0, document.body.scrollHeight);
+          setLoaded(true);
+        }, 1000);
+      });
     }, []);
 
-    return (
-        <Loader className={loaded ? "loaded" : null}>
-            <ImageLoader className={loaded ? "loaded" : null}>
-                <ImageAnimation>
-                    <img src={imgMars} width="150" height="150" alt="mars" />
-                </ImageAnimation>
-                <Label>Chargement...</Label>
-            </ImageLoader>
-        </Loader>
-    )
+  return (
+    <Loader className={loaded ? "loaded" : null}>
+      <ImageLoader className={loaded ? "loaded" : null}>
+        <ImageAnimation>
+          <img src={imgMars} width="150" height="150" alt="mars" />
+        </ImageAnimation>
+        <Label>Chargement...</Label>
+      </ImageLoader>
+    </Loader>
+  )
 }
 
 export default Loading;

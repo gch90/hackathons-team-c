@@ -1,11 +1,11 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { NavBar, Loading } from '../components'
-import { Landing, Enigma, Game, Form, Payment, Ticketslist } from '../pages'
+import { NavBar, Loading } from '../components';
+import { Landing, Enigma, Game, Form, Payment, Ticketslist } from '../pages';
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '../style/global-style.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../style/global-style.css';
 
 // <Loading />
 
@@ -50,4 +50,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;

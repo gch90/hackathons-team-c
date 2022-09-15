@@ -1,5 +1,4 @@
-import React from 'react'
-import { getUserValue } from '../hooks/useUserStorage'
+import { getUserValue } from '../hooks/useUserStorage';
 
 export const useHandlePageAccess = (history) => {
 	const page = ['form', 'game', 'payment'];
@@ -7,7 +6,7 @@ export const useHandlePageAccess = (history) => {
 	const currentPageName = location.replace('/', '');
 	const currentState = getUserValue('state');
 
-	if (currentState === null && page[0] != currentPageName) {
+	if (currentState === null && page[0] !== currentPageName) {
 		history.push('/');
 	}
 
