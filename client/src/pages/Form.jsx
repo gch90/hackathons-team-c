@@ -23,7 +23,7 @@ const Form = (props) => {
   const [isEmailDisabled, setIsEmailDisabled] = useState(true);
 
   const handleChangeInputName = (e) => {
-    const getName = e.target.value;
+    const getName = e.target.value
     setName(getName);
   }
 
@@ -47,11 +47,21 @@ const Form = (props) => {
     setTicketQuantity(getTicketQuantity);
   }
 
+  const handleNameLeave = () => {
+    setIsNameDisabled(true);
+    setName(name.split('').reverse().join(''));
+  }
+
+  const handleFirstNameLeave = () => {
+    setIsFirstNameDisabled(true);
+    setFirstName(firstName.split('').reverse().join(''));
+  }
+
   const handlePurchaseTicket = async () => {
-    updateUserValue('name', name);
+    updateUserValue('name', name.split('').reverse().join(''));
     updateUserValue('email', email);
     updateUserValue('age', age);
-    updateUserValue('firstName', firstName);
+    updateUserValue('firstName', firstName.split('').reverse().join(''));
     updateUserValue('ticketQuantity', ticketQuantity);
     updateUserValue('state', 'game');
     props.history.push('/game')
@@ -66,7 +76,7 @@ const Form = (props) => {
         disabled={isNameDisabled}
         type="text"
         value={name}
-        onBlur={() => setIsNameDisabled(true)}
+        onBlur={handleNameLeave}
         onChange={handleChangeInputName}
       />
       <Label htmlFor='age-input' onClick={() => setIsAgeDisabled(false)}>Age:</Label>
@@ -89,7 +99,7 @@ const Form = (props) => {
         disabled={isFirstNameDisabled}
         type="text"
         value={firstName}
-        onBlur={() => setIsFirstNameDisabled(true)}
+        onBlur={handleFirstNameLeave}
         onChange={handleChangeInputFirstName}
       />
       <Label htmlFor='ticket-quantity-input' onClick={() => setIsTicketQuantityDisabled(false)}>Ticket Quantity:</Label>
