@@ -20,11 +20,11 @@ const Delete = styled.div`
     cursor: pointer;
 `
 
-class UpdateMovie extends Component {
+class UpdateTicket extends Component {
     updateUser = event => {
         event.preventDefault()
 
-        window.location.href = `/movies/update/${this.props.id}`
+        window.location.href = `/tickets/update/${this.props.id}`
     }
 
     render() {
@@ -32,16 +32,16 @@ class UpdateMovie extends Component {
     }
 }
 
-class DeleteMovie extends Component {
+class DeleteTicket extends Component {
     deleteUser = event => {
         event.preventDefault()
 
         if (
             window.confirm(
-                `Do tou want to delete the movie ${this.props.id} permanently?`,
+                `Do tou want to delete the ticket ${this.props.id} permanently?`,
             )
         ) {
-            api.deleteMovieById(this.props.id)
+            api.deleteTicketById(this.props.id)
             window.location.reload()
         }
     }
@@ -51,11 +51,11 @@ class DeleteMovie extends Component {
     }
 }
 
-class MoviesList extends Component {
+class TicketsList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            movies: [],
+            tickets: [],
             columns: [],
             isLoading: false,
         }
@@ -64,16 +64,16 @@ class MoviesList extends Component {
     componentDidMount = async () => {
         this.setState({ isLoading: true })
 
-        await api.getAllMovies().then(movies => {
+        await api.getAllTickets().then(tickets => {
             this.setState({
-                movies: movies.data.data,
+                tickets: tickets.data.data,
                 isLoading: false,
             })
         })
     }
 
     render() {
-        const { movies, isLoading } = this.state
+        const { tickets, isLoading } = this.state
 
         const columns = [
             {
@@ -87,14 +87,14 @@ class MoviesList extends Component {
                 filterable: true,
             },
             {
-                Header: 'Rating',
-                accessor: 'rating',
+                Header: 'Age',
+                accessor: 'age',
                 filterable: true,
             },
             {
-                Header: 'Time',
-                accessor: 'time',
-                Cell: props => <span>{props.value.join(' / ')}</span>,
+                Header: 'Email',
+                accessor: 'email',
+                filterable: true,
             },
             {
                 Header: '',
@@ -102,7 +102,7 @@ class MoviesList extends Component {
                 Cell: function(props) {
                     return (
                         <span>
-                            <DeleteMovie id={props.original._id} />
+                            <DeleteTicket id={props.original._id} />
                         </span>
                     )
                 },
@@ -113,7 +113,7 @@ class MoviesList extends Component {
                 Cell: function(props) {
                     return (
                         <span>
-                            <UpdateMovie id={props.original._id} />
+                            <UpdateTicket id={props.original._id} />
                         </span>
                     )
                 },
@@ -121,7 +121,7 @@ class MoviesList extends Component {
         ]
 
         let showTable = true
-        if (!movies.length) {
+        if (!tickets.length) {
             showTable = false
         }
 
@@ -129,7 +129,7 @@ class MoviesList extends Component {
             <Wrapper>
                 {showTable && (
                     <ReactTable
-                        data={movies}
+                        data={tickets}
                         columns={columns}
                         loading={isLoading}
                         defaultPageSize={10}
@@ -142,4 +142,4 @@ class MoviesList extends Component {
     }
 }
 
-export default MoviesList
+export default TicketsList
