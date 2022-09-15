@@ -46,7 +46,7 @@ const Item = styled.span.attrs({
   }
   
   &.top-left-rounded {
-    border-top-left-radius: 35px;
+    border-top-left-radius: 30px;
   }
 }`;
 
