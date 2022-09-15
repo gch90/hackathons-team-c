@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Collapse = styled.div.attrs({
     className: '',
-})``
+})``;
 
 const List = styled.div.attrs({
     className: 'navbar-nav ml-auto',
-})``
+})``;
 
 const Item = styled.div.attrs({
     className: 'collpase navbar-collapse position-relative mx-4',
@@ -41,10 +41,9 @@ const Item = styled.div.attrs({
          width: 100%;
          left: 0;
       }
-  }`
+  }`;
 
-class Links extends Component {
-    render() {
+const Links = () => {
         return (
             <React.Fragment>
                 <Collapse>
@@ -68,7 +67,6 @@ class Links extends Component {
                 </Collapse>
             </React.Fragment>
         )
-    }
 }
 
-export default Links
+export default Links;

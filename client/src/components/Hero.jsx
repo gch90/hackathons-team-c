@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import imgMars from '../mars.png'
+import imgMars from '../mars.png';
 
-import Button from './Button'
-import { COLORS } from '../const'
+import Button from './Button';
 
 const Section = styled.section.attrs({
     className: 'container d-flex align-items-center justify-content-center w-100 my-5',
@@ -14,17 +13,16 @@ const Section = styled.section.attrs({
     img {
         left:-400px;
     }
-`
+`;
 const Row = styled.div.attrs({
     className: 'row w-100',
-})``
+})``;
 
 const Col = styled.div.attrs({
     className: 'col-12 col-xl-10 offset-xl-2',
-})``
+})``;
 
-class Hero extends Component {
-    render() {
+const Hero = () => {
         return (
             <Section>
                 <img className="position-absolute" src={imgMars} width="800" alt="mars" />
@@ -41,7 +39,6 @@ class Hero extends Component {
                 </Row>
             </Section>
         )
-    }
 }
 
-export default Hero
+export default Hero;

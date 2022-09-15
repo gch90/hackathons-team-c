@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import { COLORS } from '../const'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { COLORS } from '../const';
 
 const Item = styled.span.attrs({
   className: 'button d-block text-center',
@@ -48,14 +48,14 @@ const Item = styled.span.attrs({
   &.top-left-rounded {
     border-top-left-radius: 30px;
   }
-}`
+}`;
 
 const Button = ({className, link, title}) => {
-  return (
-    <Link className={'button-holder ' + className} to={{pathname: link}}>
-      <Item className={'position-relative ' + className}><span className='position-relative'>{title}</span></Item>
-    </Link>
-  )
+    return (
+        <Link className={'button-holder ' + className} to={{pathname: link}}>
+            <Item className={'position-relative ' + className}><span className='position-relative'>{title}</span></Item>
+        </Link>
+    )
 }
 
-export default Button
+export default Button;
