@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import api from '../api';
 
 import styled from 'styled-components';
@@ -10,6 +10,8 @@ const Title = styled.h1.attrs({
 const Wrapper = styled.div.attrs({
   className: 'form-group',
 })`
+  display: flex;
+  flex-direction: column;
     margin: 0 30px;
 `
 
@@ -17,9 +19,7 @@ const Label = styled.label`
     margin: 5px;
 `
 
-const InputText = styled.input.attrs({
-  className: 'form-control',
-})`
+const InputText = styled.input`
     margin: 5px;
 `
 
@@ -35,42 +35,41 @@ const CancelButton = styled.a.attrs({
     margin: 15px 15px 15px 5px;
 `
 
-const Form = (props) => {
+const Form = () => {
   
   const [name, setName] = useState('');
   const [age, setAge] = useState(0);
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [ticketQuantity, setTicketQuantity] = useState(0);
+  const [isNameDisabled, setIsNameDisabled] = useState(true);
+  const [isAgeDisabled, setIsAgeDisabled] = useState(true);
+  const [isFirstNameDisabled, setIsFirstNameDisabled] = useState(true);
+  const [isTicketQuantityDisabled, setIsTicketQuantityDisabled] = useState(true);
+  const [isEmailDisabled, setIsEmailDisabled] = useState(true);
 
-  const handleChangeInputName = async event => {
-    const getName = event.target.value;
+  const handleChangeInputName = (e) => {
+    const getName = e.target.value;
     setName(getName);
   }
 
-  const handleChangeInputAge = async event => {
-    const getAge = event.target.validity.valid
-      ? event.target.value
-      : age
-
+  const handleChangeInputAge = (e) => {
+    const getAge = e.target.validity.valid ? e.target.value : age
     setAge(getAge);
   }
 
-  const handleChangeInputEmail = async event => {
-    const getEmail = event.target.value;
+  const handleChangeInputEmail = (e) => {
+    const getEmail = e.target.value;
     setEmail(getEmail);
   }
 
-  const handleChangeInputFirstName = async event => {
-    const getFirstName = event.target.value;
+  const handleChangeInputFirstName = (e) => {
+    const getFirstName = e.target.value;
     setFirstName(getFirstName);
   }
 
-  const handleChangeInputTicketQuantity = async event => {
-    const getTicketQuantity = event.target.validity.valid
-      ? event.target.value
-      : ticketQuantity
-
+  const handleChangeInputTicketQuantity = (e) => {
+    const getTicketQuantity = e.target.validity.valid ? e.target.value : ticketQuantity
     setTicketQuantity(getTicketQuantity);
   }
 
@@ -90,15 +89,19 @@ const Form = (props) => {
       <Wrapper>
         <Title>Purchase Ticket</Title>
 
-        <Label>Name: </Label>
+        <Label htmlFor='name-input' onClick={() => setIsNameDisabled(false)}>Name: </Label>
         <InputText
+          id='name-input'
+          disabled={isNameDisabled}
           type="text"
           value={name}
           onChange={handleChangeInputName}
         />
 
-        <Label>Age: </Label>
+        <Label htmlFor='age-input' onClick={() => setIsAgeDisabled(false)}>Age: </Label>
         <InputText
+          id='age-input'
+          disabled={isAgeDisabled}
           type="number"
           step="1"
           lang="en-US"
@@ -109,16 +112,20 @@ const Form = (props) => {
           onChange={handleChangeInputAge}
         />
 
-        <Label>First Name: </Label>
+        <Label htmlFor='first-name-input' onClick={() => setIsFirstNameDisabled(false)}>First Name: </Label>
         <InputText
+          id='first-name-input'
+          disabled={isFirstNameDisabled}
           type="text"
           value={firstName}
           onChange={handleChangeInputFirstName}
         />
 
 
-        <Label>Ticket Quantity: </Label>
+        <Label htmlFor='ticket-quantity-input' onClick={() => setIsTicketQuantityDisabled(false)}>Ticket Quantity: </Label>
         <InputText
+          id='ticket-quantity-input'
+          disabled={isTicketQuantityDisabled}
           type="number"
           lang="en-US"
           min="1"
@@ -128,8 +135,10 @@ const Form = (props) => {
           onChange={handleChangeInputTicketQuantity}
         />
 
-        <Label>Email: </Label>
+        <Label htmlFor='email-input' onClick={() => setIsEmailDisabled(false)}>Email: </Label>
         <InputText
+          id='email-input'
+          disabled={isEmailDisabled}
           type="text"
           value={email}
           onChange={handleChangeInputEmail}
