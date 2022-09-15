@@ -24,7 +24,6 @@ const Nav = styled.nav.attrs({
 `
 
 const NavBar = () => {
-
     return (
         <Container>
             {!isSmallScreen ? 
@@ -40,6 +39,11 @@ const NavBar = () => {
             :
                 <Nav>
                     <Logo />
+                    <Button
+                    className="top-left-rounded main-color"
+                    title="Billets"
+                    link="/enigma"
+                    />
                 </Nav>  
             }
           

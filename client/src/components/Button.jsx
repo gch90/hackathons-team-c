@@ -3,18 +3,21 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { COLORS } from '../const';
 
+import { isSmallScreen } from '../const'
+
 const Item = styled.span.attrs({
   className: 'button d-block text-center',
 })`
   font-size: 20px;
   font-weight: medium;
   width:100%;
-  min-width:270px;
-  max-width:270px;
   padding:0.90rem 15px;
   overflow:hidden;
   color:${COLORS.whiteColor};
-  
+
+  min-width: ${isSmallScreen ?  'none' : '270px'};
+  max-width: ${isSmallScreen ?  'none' : '270px'};
+  padding: ${isSmallScreen ?  '0.90rem 25px' : '0.90rem 15px'};
 
   &:after {
     content:' ';
@@ -50,12 +53,12 @@ const Item = styled.span.attrs({
   }
 }`;
 
-const Button = ({className, link, title}) => {
+const Button = ({className, link, title})  => {
     return (
-        <Link className={'button-holder ' + className} to={{pathname: link}}>
-            <Item className={'position-relative ' + className}><span className='position-relative'>{title}</span></Item>
-        </Link>
-    )
+      <Link className={'button-holder ' + className} to={{pathname: link}}>
+          <Item className={'position-relative ' + className}><span className='position-relative'>{title}</span></Item>
+      </Link>
+  )
 }
 
 export default Button;
