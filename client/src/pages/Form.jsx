@@ -54,6 +54,7 @@ const Form = (props) => {
     updateUserValue('firstName', firstName);
     updateUserValue('ticketQuantity', ticketQuantity);
     updateUserValue('state', 'game');
+    props.history.push('/game')
   }
 
   return (

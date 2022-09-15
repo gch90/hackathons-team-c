@@ -1,6 +1,7 @@
 import React, { Component, useRef, useState, useEffect, createRef } from 'react';
 import styled from 'styled-components';
 import { COLORS } from '../const';
+import {updateUserValue} from '../hooks/useUserStorage';
 
 const Section = styled.section.attrs({className: 'my-5'})`
     font-size: 32px;
@@ -74,7 +75,7 @@ const Canvas = (props) => {
     const canvasRef = useRef(null);
     const [gameState, setGameState] = useState("Play");
     var interval;
-    var circleCount = 30;
+    var circleCount = 1;
 
 
     const update = (ctx, frameCount, circles, speed, elapsedSinceLastLoop) => {
@@ -118,8 +119,8 @@ const Canvas = (props) => {
     }
 
     const winGame = () => {
-        // Make redirect and manage local store.
-        // Todo
+        updateUserValue('state', 'payment');
+        props.history.push('/payment')
     }
 
     useEffect(() => {
