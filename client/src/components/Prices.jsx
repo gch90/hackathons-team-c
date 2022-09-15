@@ -31,8 +31,8 @@ const Paragraph = styled.p`
 const Ticket = styled.div`
     position:relative;
     background:rgba(255,255,255, 0.05);
-    padding:100px;
-    width:650px;
+    padding:80px 100px;
+    width:750px;
     max-width:100%;
     margin:auto;
     text-align:center;
@@ -138,6 +138,13 @@ const Prices = (props) => {
         return () => clearInterval(interval);
     }, []);
 
+    // Bamboozle the user?
+    const [linkText, setlinkText] = useState(props.link);
+    const handleClick = (e) => {
+        e.preventDefault();
+        setlinkText(props.linkFailed);
+    }
+
     // Increment ticket price...
     const changePrice = () =>{
         const newArr = price;
@@ -162,8 +169,6 @@ const Prices = (props) => {
     }
 
     return (
-
-
         <Section>
             <Container>
                 <Header>
@@ -174,7 +179,7 @@ const Prices = (props) => {
                     {counter}
                     <Paragraph>{notice}</Paragraph>
                     <Price>{price.current}{props.currency}</Price>
-                    <SectionLink to={{pathname: props.url}}>{props.link}</SectionLink>
+                    <SectionLink to={{pathname: props.url}} onClick={(e) => handleClick(e)}>{linkText}</SectionLink>
                 </Ticket>
             </Container>
         </Section>
