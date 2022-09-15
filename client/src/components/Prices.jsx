@@ -112,13 +112,14 @@ const SectionLink = styled(Link)`
 
 const Prices = (props) => {
 
-    const increment = 5000;
+    const increment = 10000;
     const [price, setPrice] = useState({current: props.min, max:props.max});
     const [timer, setTimer] = useState(5);
     const [timerState, setTimeState] = useState(true);
     
 
     useEffect(() => {
+        // Increment timer...
         const interval = setInterval(function(){
             setTimer(prevCount => {
                 if(prevCount <= 0){
@@ -137,6 +138,7 @@ const Prices = (props) => {
         return () => clearInterval(interval);
     }, []);
 
+    // Increment ticket price...
     const changePrice = () =>{
         const newArr = price;
         newArr.current = newArr.current + increment;
@@ -148,11 +150,16 @@ const Prices = (props) => {
         setPrice(newArr);
     }
     
+    // Changes content display if max price has reached...
     let counter;
+    let notice;
     if(timerState){
         counter = <Counter>00:0{timer}</Counter>;
+        notice = props.text;
     }
-    
+    else{
+        notice = props.textFailed;
+    }
 
     return (
 
@@ -165,7 +172,7 @@ const Prices = (props) => {
                 </Header>
                 <Ticket>
                     {counter}
-                    <Paragraph>{props.text}</Paragraph>
+                    <Paragraph>{notice}</Paragraph>
                     <Price>{price.current}{props.currency}</Price>
                     <SectionLink to={{pathname: props.url}}>{props.link}</SectionLink>
                 </Ticket>

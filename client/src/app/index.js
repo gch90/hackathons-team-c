@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import { NavBar } from '../components'
+import { NavBar, Loading } from '../components'
 import { Landing, Enigma, Game, Form } from '../pages'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -10,6 +10,7 @@ import '../style/global-style.css'
 const App = () => {
   return (
     <Router>
+      <Loading />
       <NavBar />
       <Switch>
         <Route 
