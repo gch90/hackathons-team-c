@@ -7,5 +7,7 @@ import Distance from './Distance'
 import Footer from './Footer'
 import Loading from './Loading'
 import Prices from './Prices'
+import Canvas from './Canvas'
+import Score from './Score'
 
 export { Links, Logo, NavBar, Hero, Gallery, Loading, Prices, Distance, Footer }
