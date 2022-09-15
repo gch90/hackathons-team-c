@@ -29,8 +29,8 @@ class Footer extends Component {
         return (
             <FooterWrapper>
                 <Row>
-                    <div class="col-12 col-xl-auto text-center"><small>© Tous droits réservés - 2022</small></div>
-                    <div class="col-12 col-xl-auto text-center">
+                    <div className="col-12 col-xl-auto text-center"><small>© Tous droits réservés - 2022</small></div>
+                    <div className="col-12 col-xl-auto text-center">
                         <Socials />
                     </div>
                 </Row>
