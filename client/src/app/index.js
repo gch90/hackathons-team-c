@@ -5,6 +5,7 @@ import { NavBar } from '../components'
 import { Landing, Enigma, Game, Form } from '../pages'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import '../style/global-style.css'
 
 const App = () => {
   return (
