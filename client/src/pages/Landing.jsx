@@ -1,24 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavBar } from '../components'
-import { Hero } from '../components'
-import { Gallery } from '../components'
-import { Distance } from '../components'
-import { Footer } from '../components'
+import { Hero, Gallery, Prices, Distance, Footer } from '../components';
 
 const Wrapper = styled.div`
-  background-color: black;
   min-height: 100vh;
 `
 
 const Landing = () => {
   return (
     <Wrapper>
-      <NavBar />
-      <Hero />
+      <Footer />
+      <Prices 
+          suptitle="Prix"  
+          title="Un prix spécialement pour vous"  
+          text="Dépêchez vous! Avant que l'offre ne se termine..."  
+          textFailed="Dommage, vous avez été trop lent, pour cette raison vous devrez payez plein prix..."  
+          currency="DC"  
+          min={54000}  
+          max={289000}  
+          link="Acheter un billet"  
+          linkFailed="Ou pas..."  
+          url="/enigma"  
+        />
       <Gallery />
       <Distance />
-      <Footer />
+      <Hero />
     </Wrapper>
   )
 }

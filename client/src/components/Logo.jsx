@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import logo from '../logo.svg'
+import logo from '../logo.svg';
 
 const Wrapper = styled.a.attrs({
     className: '',
@@ -11,14 +11,12 @@ span {
 }
 `
 
-class Logo extends Component {
-    render() {
+const Logo = () => {
         return (
             <Wrapper href="/">
                 <span className='d-block'><img src={logo} width="120" height="20" alt="MTNB" /></span>
             </Wrapper>
         )
-    }
 }
 
-export default Logo
+export default Logo;

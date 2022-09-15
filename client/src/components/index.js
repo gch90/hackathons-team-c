@@ -5,5 +5,7 @@ import Hero from './Hero'
 import Gallery from './Gallery'
 import Distance from './Distance'
 import Footer from './Footer'
+import Loading from './Loading'
+import Prices from './Prices'
 
-export { Links, Logo, NavBar, Hero, Gallery, Distance, Footer }
+export { Links, Logo, NavBar, Hero, Gallery, Loading, Prices, Distance, Footer }

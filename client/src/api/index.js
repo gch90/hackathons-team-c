@@ -1,21 +1,21 @@
-// import axios from 'axios'
+import axios from 'axios'
 
-// const api = axios.create({
-//     baseURL: 'http://localhost:3000/api',
-// })
+const api = axios.create({
+    baseURL: 'http://localhost:3000/api',
+})
 
-// export const insertMovie = payload => api.post(`/movie`, payload)
-// export const getAllMovies = () => api.get(`/movies`)
-// export const updateMovieById = (id, payload) => api.put(`/movie/${id}`, payload)
-// export const deleteMovieById = id => api.delete(`/movie/${id}`)
-// export const getMovieById = id => api.get(`/movie/${id}`)
+export const purchaseTicket = payload => api.post(`/user/create`, payload)
+export const getAllTickets = () => api.get(`/tickets`)
+export const updateTicketById = (id, payload) => api.put(`/ticket/${id}`, payload)
+export const deleteTicketById = id => api.delete(`/ticket/${id}`)
+export const getTicketById = id => api.get(`/ticket/${id}`)
 
-// const apis = {
-//     insertMovie,
-//     getAllMovies,
-//     updateMovieById,
-//     deleteMovieById,
-//     getMovieById,
-// }
+const apis = {
+    purchaseTicket,
+    getAllTickets,
+    updateTicketById,
+    deleteTicketById,
+    getTicketById,
+}
 
-// export default apis
+export default apis
