@@ -4,14 +4,18 @@ import styled from 'styled-components'
 import logo from '../logo.svg'
 
 const Wrapper = styled.a.attrs({
-    className: 'navbar-brand',
-})``
+    className: '',
+})`
+span {
+    min-width:270px;
+}
+`
 
 class Logo extends Component {
     render() {
         return (
-            <Wrapper href="https://sambarros.com">
-                <img src={logo} width="50" height="50" alt="sambarros.com" />
+            <Wrapper href="/">
+                <span className='d-block'><img src={logo} width="120" height="20" alt="MTNB" /></span>
             </Wrapper>
         )
     }
