@@ -1,3 +1,9 @@
+:root {
+    --mainColor: #C7542F;
+  }
+
+/* Global */
+
 html {
     font-size: 16px;
     overflow-x: hidden;
@@ -6,7 +12,23 @@ html {
 body {
     font-size: 16px;
     font-family: 'Space Grotesk', sans-serif;
+    color: #fff;
+    background-color: #101010;
+    padding-top:250px;
 }
+
+.container-fluid {
+    max-width: 1650px;
+    margin: 0 auto;
+}
+
+/* Global Color */
+
+.mainColor {
+    color: var(--mainColor)
+}
+
+/* Global Button */
 
 .button-holder {
     padding: 6px;
@@ -21,6 +43,44 @@ body {
     border-top-left-radius: 35px;
 }
 
+/* Nav */
+
 nav {
     position: fixed;
+}
+
+/* Typos */
+
+h2,
+.style-h2 {
+    font-weight: bold;
+    font-size: 56px;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.85),
+    0px 8px 13px rgba(0,0,0,0.1),
+    0px 18px 23px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+h3,
+.style-h3 {
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+p,
+.style-p {
+    max-width: 720px;
+    font-weight: 300;
+    font-size: 22px;
+    margin-bottom: 1.5rem;
+}
+
+.suptitle {
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
 }

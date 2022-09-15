@@ -1,19 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavBar } from '../components';
+import { NavBar } from '../components'
+import { Hero } from '../components'
+import { Gallery } from '../components'
 import Prices from '../components/Prices';
 
 const Wrapper = styled.div`
-  background-color: black;
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 `
 
 const Landing = () => {
-    return (
-      <Wrapper>
-        <NavBar />
-        <Prices 
+  return (
+    <Wrapper>
+      <NavBar />
+      <Prices 
           suptitle="Prix"  
           title="Un prix spécialement pour vous"  
           text="Dépêchez vous! Avant que l'offre se termine..."  
@@ -23,7 +23,9 @@ const Landing = () => {
           link="Acheter un billet"  
           url="/enigma"  
         />
-      </Wrapper>
+      <Gallery />
+      <Hero />
+    </Wrapper>
   )
 }
 
