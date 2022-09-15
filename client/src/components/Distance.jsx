@@ -3,8 +3,6 @@ import styled from 'styled-components'
 
 import { COLORS } from '../const'
 
-import { isSmallScreen } from '../const'
-
 import walkIco from '../person-walking-solid.png'
 
 const Section = styled.section.attrs({
@@ -26,7 +24,7 @@ const Col = styled.div.attrs({
 })``
 
 const DivTravel = styled.div.attrs({
-    className: 'col-12 d-flex justify-content-between align-items-center text-center flex-column flex-lg-row flex-lg-row-reverse px-0',
+    className: 'col-12 d-flex justify-content-between align-items-center text-center flex-column px-0',
 })``
 
 const Planethoder = styled.div.attrs({
@@ -46,17 +44,17 @@ const Line = styled.div.attrs({
 })`
     height:1px;
     background-color:${COLORS.mainBorder};
-    width: ${isSmallScreen ?  '1px' : '85%'};
-    height: ${isSmallScreen ?  '1000vh' : '1px'};
+    width:1px;
+    height: 1000vh;
 `
 
 const Traveler = styled.div.attrs({
     className: 'position-absolute pt-2',
 })`
-    transform: ${isSmallScreen ?  'rotate(-90deg);' : ''};
-    width: ${isSmallScreen ?  '250px;' : ''};
-    right: ${isSmallScreen ?  '-90px;' : ''}; 
-    top: ${isSmallScreen ?  '50%' : ''}; 
+    transform: rotate(-90deg);
+    width:250px;
+    right:-90px; 
+    top:50%; 
 `
 class Distance extends Component {
     render() {
@@ -85,6 +83,12 @@ class Distance extends Component {
                                 <span>Terre</span>
                             </Planethoder>
                         </DivTravel>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Subtitle>Le Voyage</Subtitle>
+                        <h2>Les différentes étapes</h2>
                     </Col>
                 </Row>
             </Section>
